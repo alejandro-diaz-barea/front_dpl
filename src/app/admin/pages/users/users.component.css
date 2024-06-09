@@ -1,0 +1,78 @@
+.no-users{
+  min-height: 70vh;
+
+}
+
+
+.user-list {
+  margin: 20px auto;
+  max-width: 800px;
+  min-height: 70vh;
+}
+
+.user-list__title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+
+}
+
+
+.user-card {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+.user-list__container {
+  list-style: none;
+}
+
+/* Estilos para los detalles de cada usuario dentro de la tarjeta */
+.user-card__details {
+  padding: 20px;
+}
+
+/* Estilos para cada detalle de usuario */
+.user-card__detail {
+  margin-bottom: 10px;
+  list-style: none; /* Eliminar el punto de la lista */
+}
+
+/* Estilos para el pie de cada tarjeta de usuario */
+.user-card__footer {
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border-top: 1px solid #ddd;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/* Estilos para los botones de acción */
+.user-action-button {
+  padding: 8px 16px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estilos específicos para el botón de banear */
+.user-action-button--ban {
+  background-color: #ff6347;
+  color: #fff;
+}
+
+/* Estilos específicos para el botón de cambiar rol */
+.user-action-button--change-role {
+  background-color: #4682b4;
+  color: #fff;
+}
+
+/* Estilos para el mensaje de usuarios no encontrados */
+.no-users__message {
+  margin: 20px auto;
+  text-align: center;
+  font-size: 18px;
+  color: #ff0000;
+}

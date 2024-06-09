@@ -1,0 +1,24 @@
+<div class="filter-popup-container">
+  <div class="filter-popup-content">
+    <input type="text" placeholder="Search" [formControl]="searchTermControl">
+    <ul>
+      <li *ngFor="let category of filteredCategories"
+        (click)="toggleCategorySelection(category)"
+        [class.selected]="isSelected(category.id)">
+        {{ category.categoryname }}
+      </li>
+    </ul>
+
+    <h4>Selected Categories:</h4>
+    <ul>
+      <li *ngFor="let selectedCategory of selectedCategories">
+        {{ selectedCategory.id }} - {{ selectedCategory.name }}
+        <span (click)="removeSelectedCategory(selectedCategory)" class="remove-category">X</span>
+      </li>
+    </ul>
+    <div class="apply-container">
+      <button class="apply" (click)="applyFilter()">Apply</button>
+    </div>
+      </div>
+  <button class="close-button" (click)="closeFilterPopup()">X</button>
+</div>

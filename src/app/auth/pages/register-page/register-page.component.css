@@ -1,0 +1,309 @@
+
+.register-container {
+    display: flex;
+    min-height: 72.1vh;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .register-container .header {
+    display: none;
+  }
+
+
+  .register-form {
+    width: 70%;
+    padding: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .register-form__title{
+    font-size: 2.5em;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 0;
+    font-family:'Battambang';
+
+  }
+
+  .register-form__form {
+    width: 70%;
+    padding: 2rem;
+    padding-top: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .register-form__input{
+    background-color: rgba(39, 110, 144, 0.4);
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+
+  .register-form__input::placeholder{
+    color: black;
+  }
+
+  .checkbox-container {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 0;
+  }
+
+  .register-form__label {
+    margin-left: 5px;
+    width: 90%;
+    font-size: 13px;
+  }
+
+  .register-form__input[type="checkbox"] {
+    margin-right: 5px;
+    width: 10px;
+    margin-bottom: 0;
+    margin-left: 0;
+
+  }
+
+  .register-form__error-message{
+    color: red;
+    margin-bottom: 0;
+
+  }
+
+  .register-form__button {
+    width: 100px;
+    background-color: rgba(39, 110, 144, 0.4);
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Bevan';
+    margin-top: 40px;
+
+  }
+
+
+  .register-form__button:hover {
+    background-color: #333333;
+  }
+
+  .register-form__dont-account{
+    margin-top: 40px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0px;
+  }
+
+
+
+
+  /*Recuadro de info */
+
+  .register-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    padding: 0;
+    margin: 0;
+    height: 500px;
+    margin-left: 60px;
+  }
+
+  .register-info__box{
+    width: 80%;
+    height: 100%;
+    background-color: rgba(39, 110, 144, 0.4);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-family:'Battambang';
+    color: black;
+  }
+
+
+  .register-info__box-title{
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+
+  }
+
+  .register-info__box-text{
+    max-width: 60%;
+    text-align: left;
+    font-size: 1rrem;
+    margin-left: 10px;
+
+  }
+
+
+
+
+
+  /* Responsive */
+
+  @media screen and (max-height: 850px) {
+    .register-form__input{
+      margin-top: 10px;
+    }
+    .register-form__title{
+      margin-bottom: -30px;
+    }
+    .register-form__button {
+      margin-top: 10px;
+    }
+  }
+
+
+  @media screen and (max-width: 1500px) {
+    .register-info__box-title{
+      font-size: 1.4rem;
+
+    }
+
+    .register-info__box-text{
+
+      font-size: 1rem;
+
+    }
+  }
+
+
+  @media screen and (max-width: 1300px) {
+    .register-info__box-title{
+      font-size: 1.1rem;
+
+    }
+
+    .register-info__box-text{
+
+      font-size: 0.9rem;
+
+    }
+  }
+
+
+  @media screen and (max-width: 950px) {
+    .register-info__box-title{
+      font-size: 1.1rem;
+
+    }
+
+    .register-info__box-text{
+
+      font-size: 0.7rem;
+
+    }
+    .register-form__form {
+      width: 90%;
+
+    }
+  }
+
+
+  @media screen and (max-width: 650px) {
+    .register-info{
+      display: none;
+    }
+    .register-form {
+      width: 100% ;
+
+    }
+
+    .register-form__error-message{
+      font-size: 0.7rem;
+    }
+
+
+  }
+
+  @media screen and (max-width: 450px) {
+
+    .register-form__dont-account{
+
+      font-size: 11px;
+    }
+
+
+
+  }
+
+  @media screen and (max-width: 350px) {
+
+    .register-form__error-message{
+      font-size: 0.5rem;
+    }
+
+    .register-form__label {
+      margin-left: 5px;
+      width: 90%;
+      font-size: 10px;
+    }
+
+
+  }
+
+
+  @media screen and (max-width: 325px) {
+
+    .register-form__dont-account{
+
+      font-size: 10px;
+    }
+
+  }
+
+  @media screen and (max-height: 800px) {
+
+    .register-form__title{
+      margin-bottom: 10px;
+      margin-top: 30px;
+    }
+
+    .register-form__button{
+      margin-top: 20px;
+    }
+
+    .register-info {
+      height: 500px;
+
+    }
+
+    .register-info__box-title{
+      font-size: 1.4rem;
+      margin-bottom: 30px;
+
+
+    }
+
+    .register-info__box-text{
+      max-width: 70%;
+      text-align: left;
+      font-size: 0.7rem;
+
+    }
+
+
+
+  }

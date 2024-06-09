@@ -1,0 +1,66 @@
+<section class="section-sell">
+  <h1 class="section-sell__title">Upload products</h1>
+
+  <form [formGroup]="productForm" class="form">
+
+    <label>
+      <input placeholder="Product name" type="text" formControlName="name" class="input input--text" (input)="validateNameLength()" (blur)="validateField('name')">
+      <p *ngIf="fieldErrors['name'] || (formSubmitted && !productForm.controls['name'].valid && !nameMaxLengthReached)" class="error-message error-message--visible">This field is required.</p>
+      <p *ngIf="nameMaxLengthReached" class="error-message error-message--visible">max 25 caracteres.</p>
+    </label>
+
+    <label>
+      <input placeholder="Description..." type="text" formControlName="description" class="input input--text" (input)="validateDescriptionLength()" (blur)="validateField('description')">
+      <p *ngIf="fieldErrors['description'] || (formSubmitted && !productForm.controls['description'].valid && !descriptionMaxLengthReached)" class="error-message error-message--visible">This field is required.</p>
+      <p *ngIf="descriptionMaxLengthReached" class="error-message error-message--visible">max 130 caracteres.</p>
+    </label>
+
+    <label>
+      <input placeholder="Price" type="number" formControlName="price" class="input input--number" (blur)="validateField('price')">
+      <p *ngIf="fieldErrors['price'] || (formSubmitted && !productForm.controls['price'].valid)" class="error-message error-message--visible">This field is required.</p>
+    </label>
+
+    <fieldset class="filter-group">
+      <input placeholder="Filters" type="text" #filterInput class="filter-input">
+      <button type="button" (click)="addFilter(filterInput.value)" class="filter-button">Add Filter</button>
+
+    </fieldset>
+    <div class="filters">
+      <span *ngFor="let filter of product.categories; let i = index" class="filter-wrapper">
+        <button type="button" (click)="removeFilter(i)" class="remove-filter">X</button>
+        <span>{{ filter }}</span>
+      </span>
+    </div>
+    <p *ngIf="!product.categories.length && formSubmitted || filterError" class="error-message error-message--visible">At least one filter is required.</p>
+
+
+    <section class="dropzone">
+      <div class="text-wrapper">
+        Drag and drop or <a (click)="selectFile.click()" class="browse-button">browse</a> a file
+      </div>
+    </section>
+
+    <input
+      multiple
+      type="file"
+      #selectFile
+      style="display:none"
+      (change)="onFileSelected($event)"
+    />
+
+    <p *ngIf="!product.productImages.length && formSubmitted" class="error-message error-message--visible">At least one photo is required.</p>
+
+    <section class="images">
+      <figure *ngFor="let file of product.productImages; let i = index" class="image-wrapper">
+        <button type="button" (click)="removeImage(i)" class="remove-image">X</button>
+        <img [src]="file.url" alt="Product Image" class="foto">
+      </figure>
+    </section>
+
+    <button  *ngIf="!isUpdated" type="submit" class="submit-button"  (click)="onSubmit($event)">Push product</button>
+    <button  *ngIf="isUpdated" type="submit" class="submit-button"  (click)="onSubmitUpload($event)">Upload product</button>
+
+    <p *ngIf="successMessage" class="success-message success-message--visible">{{ successMessage }}</p>
+    <p *ngIf="errorMessage" class="error-message error-message--visible">{{ errorMessage }}</p>
+  </form>
+</section>

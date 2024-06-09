@@ -1,0 +1,293 @@
+
+
+.login-container {
+  display: flex;
+  min-height: 72.1vh;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.login-container .header {
+  display: none;
+}
+
+
+.login-form {
+  width: 70%;
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form__title{
+  font-size: 2.5em;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  font-family:'Battambang';
+  margin-bottom: 0px;
+
+}
+
+.login-form__form {
+  width: 70%;
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.login-form__input{
+  background-color: rgba(39, 110, 144, 0.4);
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 50px;
+}
+
+
+.login-form__input::placeholder{
+  color: black;
+}
+
+
+.login-form__error-message{
+  color: red;
+  margin-bottom: 50px;
+  margin-top: -40px;
+
+}
+
+.login-form__button {
+  width: 80px;
+  background-color: rgba(39, 110, 144, 0.4);
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Bevan';
+  margin-bottom: 50px;
+
+}
+
+
+.login-form__button:hover {
+  background-color: #333333;
+}
+
+.login-form__dont-account{
+  margin-top: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+/* card info */
+.login-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding: 0%;
+  margin: 0;
+  height: 500px;
+  margin-right: 60px;
+}
+
+.login-info__box{
+  width: 80%;
+  height: 100%;
+  background-color: rgba(39, 110, 144, 0.4);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  font-family:'Battambang';
+  color: black;
+
+
+}
+
+
+.login-info__box-title{
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+
+}
+
+.login-info__box-text{
+  max-width: 60%;
+  text-align: left;
+  font-size: 1rrem;
+  margin-left: 10px;
+
+
+}
+
+
+@media screen and (max-height: 850px) {
+  .login-form__input{
+    margin-top: 10px;
+  }
+  .login-form__title{
+    margin-bottom: -30px;
+  }
+  .login-form__button {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .login-info__box-title{
+    font-size: 1.1rem;
+
+  }
+
+  .login-info__box-text{
+
+    font-size: 0.9rem;
+
+  }
+}
+
+
+@media screen and (max-width: 950px) {
+  .login-info__box-title{
+    font-size: 1.1rem;
+
+  }
+
+  .login-info__box-text{
+
+    font-size: 0.7rem;
+
+  }
+  .login-form__form {
+    width: 90%;
+
+  }
+}
+
+@media screen and (max-width: 750px) {
+
+  .login-form__dont-account{
+    font-size: 10px;
+  }
+
+  .login-form__error-message{
+    font-size: 10px;
+  }
+
+}
+
+@media screen and (max-width: 650px) {
+  .login-info{
+    display: none;
+  }
+  .login-form {
+    width: 100% ;
+
+  }
+  .login-form__dont-account{
+    font-size: 15px;
+  }
+  .login-form__error-message{
+    font-size: 12px;
+  }
+
+
+}
+
+
+@media screen and (max-width: 450px) {
+
+  .login-form__dont-account{
+    font-size: 10px;
+  }
+
+
+}
+
+@media screen and (max-width: 350px) {
+
+
+  .login-form__error-message{
+    font-size: 12px;
+  }
+  .login-form__error-message{
+    font-size: 11px;
+  }
+
+
+}
+
+@media screen and (max-height: 850px) {
+  .login-form__input {
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+
+  .login-form__error-message{
+    color: red;
+    margin-bottom: -10px;
+    margin-top: 0px;
+  }
+
+  .login-form__button {
+    margin-bottom: 10px;
+    margin-top: 30px;
+
+  }
+
+  .login-form__dont-account{
+    margin-top: 40px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .login-form__title{
+    margin-bottom: 0px;
+  }
+
+
+  .login-info {
+    height: 400px;
+  }
+
+
+  .login-info__box-title{
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+
+  }
+
+  .login-info__box-text{
+    max-width: 70%;
+    text-align: left;
+    font-size: 0.7rem;
+
+  }
+
+  .login-form__form {
+
+    padding-top: 0;
+
+  }
+
+
+
+}

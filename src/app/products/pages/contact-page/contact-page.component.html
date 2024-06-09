@@ -1,0 +1,13 @@
+<section class="contact-section">
+  <form autocomplete="off" [formGroup]="contact" class="contact-form">
+    <h1 class="contact-section__title">Contact us !</h1>
+    <input type="email" class="contact-form__input contact-form__input--email" placeholder="Email" formControlName="email" (blur)="validarCampo('email')" />
+    <p *ngIf="contact.get('email')?.invalid && contact.get('email')?.touched" class="contact-form__error">Please enter a valid email</p>
+    <input type="text" class="contact-form__input contact-form__input--text" placeholder="Write a message ..." formControlName="texto" (blur)="validarCampo('texto')">
+    <p *ngIf="contact.get('texto')?.invalid && contact.get('texto')?.touched" class="contact-form__error">Please enter at least 10 characters</p>
+    <input type="date" class="contact-form__input contact-form__input--date" placeholder="Date of incident:" formControlName="fecha" (blur)="validarCampo('fecha')">
+    <p *ngIf="contact.get('fecha')?.invalid && contact.get('fecha')?.touched" class="contact-form__error">The date must be later than 2024</p>
+    <button class="contact-form__button" (click)="enviarFormulario()">Send</button>
+    <p *ngIf="enviadoConExito" class="contact-form__success">Message sent successfully!</p>
+  </form>
+</section>

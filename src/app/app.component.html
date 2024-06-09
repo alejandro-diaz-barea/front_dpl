@@ -1,0 +1,78 @@
+  <header class="header" *ngIf="authChecked">
+    <a routerLink="/" class="header__logo-link">
+      <p class="header__logo-link_name">
+        <span class="header__logo-link_name_bold">Ease</span>Sell
+      </p>
+    </a>
+    <nav class="header__nav">
+      <ul class="nav__list">
+        <li class="nav__item">
+          <a routerLink="/explore" class="nav__link">explore</a>
+        </li>
+        <li class="nav__item"  *ngIf="!isAdmin" >
+          <a routerLink="/sell" class="nav__link" (click)="goToLogin()">sell</a>
+        </li>
+        <li class="nav__item" *ngIf="!isAdmin" >
+          <a routerLink="/my-products" class="nav__link" (click)="goToLogin()">my products</a>
+        </li>
+        <li class="nav__item"  *ngIf="isAdmin" >
+          <a routerLink="/admin/users" class="nav__link">users</a>
+        </li>
+        <li class="nav__item">
+          <a routerLink="/contact" class="nav__link">contact</a>
+        </li>
+      </ul>
+    </nav>
+    <nav class="header__buttons">
+    <!-- Icono de Dark Mode -->
+    <a class="buttons_DarkMode" (click)="toggleDarkMode()">
+      <img class="ImagenDarkMode" [src]="darkMode ? '../../../assets/soleado.png' : '../../../assets/modo-de-sueno.png'" alt="darkmode">
+    </a>
+
+      <button *ngIf="!user" routerLink="/auth/login" class="buttons__login">Login</button>
+      <button *ngIf="!user" routerLink="/auth/new-account" class="buttons__signup">Sign up</button>
+      <a routerLink="/chats" *ngIf="user" class="buttons_DarkMode">
+        <img class="ImagenDarkMode" src="../../../assets/comentario.png" alt="darkmode" *ngIf="!isAdmin">
+      </a>
+      <button routerLink="/profile" *ngIf="user" class="buttons__user">
+        <img [src]="getUserLogoPath()" class="buttons_user_img">{{ userInfo }}
+      </button>
+    </nav>
+    <!-- Icono de hamburguesa para mostrar el menú desplegable -->
+    <div class="hamburger-icon" (click)="toggleMenu()">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </header>
+
+  <!-- Menú desplegable -->
+  <nav *ngIf="showMenu" class="mobile-menu">
+    <button (click)="toggleMenu()" class="exit-button">X</button>
+    <a routerLink="/explore" class="nav__link" (click)="toggleMenu()">explore</a>
+    <a routerLink="/sell" class="nav__link" (click)="toggleMenu()">sell</a>
+    <a routerLink="/my-products" class="nav__link" (click)="toggleMenu()">my products</a>
+    <a routerLink="/contact" class="nav__link" (click)="toggleMenu()">contact</a>
+    <button *ngIf="!user" routerLink="/auth/login" class="buttons__login" (click)="toggleMenu()">Login</button>
+    <button *ngIf="!user" routerLink="/auth/new-account" class="buttons__signup" (click)="toggleMenu()">Sign up</button>
+    <a routerLink="/chats" *ngIf="user" class="buttons_DarkMode" (click)="toggleMenu()">
+      <img class="ImagenDarkMode" src="../../../assets/comentario.png" alt="darkmode">
+    </a>
+    <a routerLink="/chats" *ngIf="user" class="buttons_DarkMode" (click)="toggleMenu()">
+      <img class="ImagenDarkMode" src="../../../assets/modo-de-sueno.png" alt="darkmode">
+    </a>
+    <button routerLink="/profile" *ngIf="user" class="buttons__user_b">{{ userInfo }}</button>
+
+    </nav>
+
+  <main *ngIf="authChecked">
+    <router-outlet ></router-outlet>
+  </main>
+
+  <app-footer-component *ngIf="authChecked"></app-footer-component>
+
+<div *ngIf="!authChecked" class="spinner-container">
+  <div class="spinner"></div>
+</div>
+
+

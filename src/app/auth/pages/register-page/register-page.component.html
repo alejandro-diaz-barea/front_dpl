@@ -1,0 +1,44 @@
+<section class="register-container">
+  <div class="register-info">
+    <article class="register-info__box">
+      <h1 class="register-info__box-title">Welcome to EaseSell!</h1>
+      <p class="register-info__box-text">Welcome to EaseSell! Join our vibrant community of buyers and sellers to discover amazing products, great deals, and seamless transactions. Whether you're here to find that perfect item or to sell your own, EaseSell makes it easy and secure. Sign up now to start exploring or log in to manage your account.</p>
+    </article>
+  </div>
+
+  <article class="register-form">
+    <h1 class="register-form__title">Sign up</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="register()" class="register-form__form">
+      <input type="email" formControlName="email" class="register-form__input register-form__input--email" placeholder="Email" (blur)="validateField('email')">
+      <p *ngIf="registerForm.get('email')?.errors?.hasOwnProperty('email') && registerForm.get('email')?.touched" class="register-form__error-message">Invalid email format</p>
+      <p *ngIf="validationErrors.email" class="register-form__error-message">{{ validationErrors.email }}</p> <!-- Mostrar el error específico de correo electrónico duplicado -->
+
+      <input type="password" formControlName="password" class="register-form__input register-form__input--password" placeholder="Password" (blur)="validateField('password')">
+      <p *ngIf="validationErrors.password" class="register-form__error-message">{{ validationErrors.password }}</p>
+
+      <input type="password" formControlName="repeat_password" class="register-form__input register-form__input--password" placeholder="Repeat Password" (blur)="validateField('repeat_password'); validatePasswordMatch()">
+      <p *ngIf="validationErrors.repeat_password" class="register-form__error-message">{{ validationErrors.repeat_password }}</p>
+
+      <input type="text" formControlName="name" class="register-form__input" placeholder="Name" (blur)="validateField('name')">
+      <p *ngIf="validationErrors.name" class="register-form__error-message">{{ validationErrors.name }}</p>
+
+      <input type="text" formControlName="address" class="register-form__input" placeholder="Address" (blur)="validateField('address')">
+      <p *ngIf="validationErrors.address" class="register-form__error-message">{{ validationErrors.address }}</p>
+
+      <input type="text" formControlName="phone_number" class="register-form__input" placeholder="Phone number" (blur)="validateField('phone_number')">
+      <p *ngIf="validationErrors.phone_number" class="register-form__error-message">{{ validationErrors.phone_number }}</p>
+
+      <div class="checkbox-container">
+        <input type="checkbox" formControlName="terms" id="termsCheckbox" class="register-form__input">
+        <label for="termsCheckbox" class="register-form__label">Accept Terms and Conditions</label>
+      </div>
+      <p *ngIf="registerForm.controls['terms'].invalid && registerForm.controls['terms'].touched" class="register-form__error-message">You must accept the terms and conditions</p>
+
+      <p *ngIf="registerForm.errors && registerForm.errors['message']" class="register-form__error-message">{{ registerForm.errors['message'] }}</p>
+
+      <button type="submit" class="register-form__button">Sign up</button>
+      <p class="register-form__dont-account">If you already have an account,<a routerLink='/auth/login'> Log in</a></p>
+    </form>
+
+  </article>
+</section>

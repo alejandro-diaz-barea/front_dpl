@@ -1,0 +1,23 @@
+<section class="chat-container">
+  <h2 class="chat-title">
+    <img [src]="chatPhotoUrl" class="img">
+    {{ chatName }}
+  </h2>
+  <div *ngIf="messages.length === 0" class="no-messages">
+    <p>No hay mensajes disponibles.</p>
+  </div>
+  <div class="message-container" #messageContainer>
+    <article *ngFor="let message of messages" class="message-item" [ngClass]="{'my-message': message.sender_id === currentUserID, 'other-message': message.sender_id !== currentUserID}">
+      <p class="message-text">{{ message.contain }}</p>
+    </article>
+  </div>
+
+  <form [formGroup]="messageForm" (ngSubmit)="sendMessage()" class="message-form">
+    <div class="form-group">
+      <div class="input-with-button">
+        <input type="text" class="form-control" id="content" formControlName="content" placeholder="Write something...">
+        <button type="submit" class="btn btn-primary">Send</button>
+      </div>
+    </div>
+  </form>
+</section>

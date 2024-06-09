@@ -1,0 +1,28 @@
+.order-selector {
+  height: 100%;
+
+}
+
+.order-selector__select {
+  height: 100%;
+  padding: 8px;
+  font-size: 16px;
+  width: 130px;
+  border-radius: 15px;
+
+}
+
+@media screen and (max-width: 600px) {
+.order-selector{
+  display: none;
+}
+.order-selector__select {
+
+  width: 100px;
+  font-size: 10px;
+
+
+}
+}
+
+

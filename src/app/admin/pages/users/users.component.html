@@ -1,0 +1,25 @@
+<section *ngIf="users.length > 0" class="user-list">
+  <h2 class="user-list__title">User Listing</h2>
+  <ul class="user-list__container">
+    <li *ngFor="let user of users" class="user-list__item">
+      <article class="user-card">
+        <section class="user-card__details">
+          <p class="user-card__detail"><strong class="user-card__detail-label">Username:</strong> {{ user.name }}</p>
+          <p class="user-card__detail"><strong class="user-card__detail-label">Email:</strong> {{ user.email }}</p>
+          <p class="user-card__detail"><strong class="user-card__detail-label">Address:</strong> {{ user.address }}</p>
+          <p class="user-card__detail"><strong class="user-card__detail-label">Phone:</strong> {{ user.phone_number }}</p>
+          <p class="user-card__detail"><strong class="user-card__detail-label">Status:</strong> {{ user.is_banned ? 'banned':'active'}}</p>
+          <p class="user-card__detail"><strong class="user-card__detail-label">Role:</strong> {{ user.is_super ? 'administrator' : 'user' }}</p>
+        </section>
+        <section class="user-card__footer">
+          <button (click)="banUser(user.id)" class="user-action-button user-action-button--ban">  {{ user.is_banned ? 'Unban' : 'Ban' }}</button>
+          <button (click)="changeUserRole(user.id, !user.is_super)" class="user-action-button user-action-button--change-role">Change Role</button>
+        </section>
+      </article>
+    </li>
+  </ul>
+</section>
+
+<section *ngIf="users.length === 0" class="no-users">
+  <p class="no-users__message">No users found.</p>
+</section>

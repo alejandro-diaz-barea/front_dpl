@@ -1,0 +1,45 @@
+<section class="explore-section">
+  <aside class="explore-section__sidebar">
+    <app-search-bar (searchEvent)="searchProducts($event)"></app-search-bar>
+    <button (click)="toggleFilterPopup()" class="explore-section__filter-button">
+      <img class="explore-section__filter-button-img" src="../../../../assets/filtrar.png">
+    </button>
+    <app-dropdown (orderChange)="onOrderChange($event)" class="explore-section__dropdown"></app-dropdown>
+  </aside>
+
+  <ng-container *ngIf="!(products$ | async); else cards">
+    <p>{{ 'Loading...' }}</p>
+  </ng-container>
+  <ng-template #cards>
+    <div class="explore-section__cards-container">
+      <p class="explore-section__error-message">{{errorMessage}}</p>
+      <article *ngFor="let product of (filteredProducts$ | async)" class="card">
+        <figure class="card__img-container">
+          <img *ngIf="product && product.productImages && product.productImages.length > 0 && product.currentImageIndex !== undefined" [src]="product.productImages[product.currentImageIndex]" alt="Product Image" class="card__img">
+          <ng-template #noImage>
+            <p>No image available</p>
+          </ng-template>
+
+          <button *ngIf="product && product.productImages && product.productImages.length > 1" (click)="nextImage(product)" class="card__next-image-button">></button>
+        </figure>
+        <div class="card__content">
+          <h2 class="card__name">{{ product?.name }}</h2>
+          <p class="card__description">Description: {{ product?.description }}</p>
+          <p class="card__price">Price: ${{ product?.price }}</p>
+          <button class="card__buy" (click)="contactSeller(product.seller_id)" *ngIf="!isAdmin">Contact Seller</button>
+          <button class="delete__product" *ngIf="isAdmin" (click)="deleteProduct(product.id)">Delete product</button>
+        </div>
+      </article>
+    </div>
+  </ng-template>
+
+  <app-pagination class="explore-section__pagination" [totalPages]="totalPages" (pageChanged)="loadProducts($event)"></app-pagination>
+
+  <div *ngIf="showErrorPopup" class="error-popup">
+    <p>{{ errorMessagePopUp }}</p>
+  </div>
+</section>
+
+<div *ngIf="showFilterPopup" class="explore-section__filter-popup-overlay">
+  <app-filters (closePopup)="toggleFilterPopup()" (filterApplied)="handleFilterApplied($event)"></app-filters>
+</div>

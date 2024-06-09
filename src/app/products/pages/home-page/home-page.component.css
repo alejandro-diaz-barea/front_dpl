@@ -1,0 +1,121 @@
+.homepage {
+  background-color: rgba(39, 110, 144, 0.4);
+  min-height: 60vh;
+  margin: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 15px;
+}
+
+.homepage__title {
+  font-size: 2rem;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+.homepage__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-align: left;
+}
+
+.homepage__image-container {
+  flex-shrink: 0;
+  margin-left: 50px;
+}
+
+.homepage__image {
+  max-width: 150px;
+  height: auto;
+}
+
+.homepage__description {
+  flex-grow: 1;
+  margin-right: 50px;
+  margin-left: 30px;
+}
+
+.homepage__button {
+  width: 200px;
+  background-color: #276e90;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Bevan';
+}
+
+.homepage__button:hover {
+  background-color: #1d4f67;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .homepage {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
+  .homepage__content {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 992px) {
+  .homepage {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .homepage__image {
+    max-width: 120px;
+  }
+
+  .homepage__description {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .homepage {
+    margin: 20px;
+  }
+
+  .homepage__title {
+    font-size: 1.75rem;
+  }
+
+  .homepage__content {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .homepage__image-container {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
+  .homepage__description {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .homepage__title {
+    font-size: 1.5rem;
+  }
+
+  .homepage__button {
+    width: 100%;
+  }
+}

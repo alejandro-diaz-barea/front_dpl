@@ -1,0 +1,20 @@
+<section class="login-container dark-mode">
+  <article class="login-form">
+    <h1 class="login-form__title">Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form__form">
+      <input type="email" formControlName="email" class="login-form__input login-form__input--email" placeholder="Email">
+      <p class="login-form__error-message" *ngIf="loginForm.get('email')?.touched && isFieldEmpty('email')">Email is required.</p>
+      <input type="password" formControlName="password" class="login-form__input login-form__input--password" placeholder="Password">
+      <p class="login-form__error-message" *ngIf="loginForm.get('password')?.touched && isFieldEmpty('password')">The password is required.</p>
+      <button type="submit" class="login-form__button">Login</button>
+      <p class="login-form__error-message" *ngIf="loginError">{{ loginError }}</p>
+      <p class="login-form__dont-account">Don't have an account yet? <a routerLink='/auth/new-acount'>Sign up</a></p>
+    </form>
+  </article>
+  <div class="login-info">
+    <article class="login-info__box">
+      <h1 class="login-info__box-title">Welcome to EaseSell!</h1>
+      <p class="login-info__box-text">Welcome to EaseSell! Join our vibrant community of buyers and sellers to discover amazing products, great deals, and seamless transactions. Whether you're here to find that perfect item or to sell your own, EaseSell makes it easy and secure. Sign up now to start exploring or log in to manage your account.</p>
+    </article>
+  </div>
+</section>

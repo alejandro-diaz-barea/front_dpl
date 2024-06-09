@@ -1,0 +1,41 @@
+<section class="explore-section">
+
+  <ng-container *ngIf="!(products$ | async); else cards">
+    <p>{{ 'Loading...' }}</p>
+  </ng-container>
+  <ng-template #cards>
+    <div class="explore-section__cards-container">
+      <p class="explore-section__error-message">{{ errorMessage }}</p>
+      <article *ngFor="let product of (filteredProducts$ | async)" class="card">
+        <figure class="card__img-container">
+          <img *ngIf="product && product.productImages && product.productImages.length > 0 && product.currentImageIndex !== undefined" [src]="product.productImages[product.currentImageIndex]" alt="Product Image" class="card__img">
+          <ng-template #noImage>
+            <p>No image available</p>
+          </ng-template>
+
+          <button *ngIf="product && product.productImages && product.productImages.length > 1" (click)="nextImage(product)" class="card__next-image-button">></button>
+        </figure>
+        <div class="card__content">
+          <h2 class="card__name">{{ product?.name }}</h2>
+          <p class="card__description">Description: {{ product?.description }}</p>
+          <p class="card__price">Price: ${{ product?.price }}</p>
+          <button class="delete" (click)="confirmDelete(product)">Delete</button>
+          <!-- <button class="edit" [routerLink]="['/sell', product.id]">Edit</button> -->
+        </div>
+      </article>
+    </div>
+  </ng-template>
+
+
+  <!-- Popup de confirmación para eliminar producto -->
+  <div *ngIf="productToDelete" class="confirm-popup-overlay">
+    <div class="confirm-popup-container">
+      <p class="confirm-popup-message">¿Seguro que quieres eliminar el producto "{{ productToDelete.name }}"?</p>
+      <div class="confirm-popup-buttons">
+        <button class="confirm-popup-cancel-button" (click)="cancelDelete()">Cancelar</button>
+        <button class="confirm-popup-delete-button" (click)="deleteProduct()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+</section>

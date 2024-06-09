@@ -1,0 +1,138 @@
+.contact-section {
+  min-height: 61.2vh;
+  padding: 50px;
+  font-family: 'Battambang';
+  width: 400px auto;
+  background-color: rgba(134, 134, 134, 0.103);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.contact-section__title {
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 70px;
+}
+
+.contact-form__input {
+  background-color: rgba(39, 110, 144, 0.4);
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 60px;
+}
+
+.contact-form__input::placeholder {
+  color: black;
+}
+
+.contact-form__input--date {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 60px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+}
+
+.contact-form__button {
+  width: 100px;
+  background-color: rgba(39, 110, 144, 0.4);
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  margin-top: 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Bevan';
+}
+
+.contact-form__error {
+  color: red;
+  margin-top: -50px;
+  font-size: 1em;
+  margin-bottom: 30px;
+}
+
+.contact-form__button:hover {
+  background-color: #276e90;
+}
+
+.contact-form__success {
+  color: green;
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 400px) {
+
+
+  .contact-section__title {
+
+    font-size: 2rem;
+
+  }
+
+  .contact-form__error {
+    font-size: 10px;
+  }
+
+  .contact-section {
+    padding: 20px;
+    height: 66vh;
+  }
+
+  .contact-form__success {
+    font-size: 0.875em;
+  }
+
+  .contact-form__button{
+    margin-bottom: 15px;
+  }
+}
+
+
+@media screen and (max-width: 800px) {
+
+
+  .contact-section__title{
+    margin-top: 50px;
+  }
+  .contact-section {
+    padding: 20px;
+    height: 69vh;
+  }
+}
+
+@media screen and (max-height: 800px) {
+
+  .contact-form__input{
+    margin-bottom: 10px;
+    margin-bottom: 20px;
+  }
+
+  .contact-section__title{
+    margin-bottom: 40px;
+    margin-top: -10px;
+  }
+
+  .contact-form__error{
+    margin-top: -10px;
+    margin-bottom: 20px;
+  }
+
+
+  .contact-form__button{
+    margin-bottom: 30px;
+  }
+
+}

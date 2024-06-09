@@ -1,0 +1,12 @@
+<div class="container">
+  <div *ngIf="chats.length === 0">
+    <p>No hay chats disponibles.</p>
+  </div>
+  <div class="chats-container">
+    <div *ngFor="let chat of chats" class="chat-item" (click)="navigateToMessages(chat.id, getOtherUserName(chat),getUserLogoPath(getOtherUser(chat)))">
+      <img [src]="getUserLogoPath(getOtherUser(chat))" class="img">
+      <h3>{{ getOtherUserName(chat) }}</h3>
+      <p class="last-message">{{ chat.last_message ? chat.last_message.content : 'No hay mensajes' }}</p>
+    </div>
+  </div>
+</div>

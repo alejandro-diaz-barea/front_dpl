@@ -1,0 +1,8 @@
+<form [formGroup]="searchForm" class="search-form">
+  <div class="search">
+    <input type="text" placeholder="Search" class="search__input" formControlName="searcher">
+    <button type="button" class="search__button" (click)="onSearch()">
+      <img class="search__icon" src="../../../assets/lupaLogo.png" alt="Search">
+    </button>
+  </div>
+</form>

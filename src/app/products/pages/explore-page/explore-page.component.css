@@ -1,0 +1,371 @@
+
+.explore-section {
+  min-height: 80vh;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.explore-section__sidebar {
+  height: 35px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+.explore-section__cards-container {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 100%;
+}
+
+.explore-section__error-message {
+  text-align: center;
+  color: red;
+  text-justify: center;
+  margin-top: 100px;
+  font-size: 25px;
+}
+
+.explore-section__pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.explore-section__filter-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.explore-section__filter-button {
+  background-color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.explore-section__filter-button-img {
+  width: 20px;
+}
+
+.explore-section__dropdown {
+  display: block;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px;
+  border: 1px solid #000;
+  border-radius: 1rem;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  height: 300px;
+}
+
+.card__img-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.4);
+  height: 100%;
+  width: 40%;
+  padding: 0;
+  margin: 0;
+  border-right: 1px solid transparent;
+}
+
+.card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.card__next-image-button {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-family: 'Battambang';
+  font-size: 14px;
+  width: 30px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__next-image-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  width: 60%;
+}
+
+.card__name{
+  font-size: 20px;
+}
+
+.card__name,
+.card__description,
+.card__price {
+  margin: 5px 0;
+  text-align: center;
+}
+
+.card__buy {
+  width: 200px;
+  background-color: #276f9083;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Bevan';
+}
+
+.card__buy:hover {
+  background-color: #276f90a0;
+}
+
+.delete__product{
+  width: 200px;
+  background-color: red;
+  color: rgb(255, 255, 255);
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Bevan';
+}
+
+.delete__product:hover{
+  background-color: rgb(170, 0, 0);
+
+}
+
+
+.error-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 9999; /* Asegura que esté por encima de otros elementos */
+  animation: fadeOut 2s ease-in-out forwards; /* Animación de desvanecimiento */
+
+  /* Estilos adicionales */
+  font-size: 14px;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+@media only screen and (max-width: 1356px) {
+  .card {
+    width: 500px;
+    height: 300px;
+  }
+}
+
+@media only screen and (max-width: 1156px) {
+  .card {
+    height: 300px;
+  }
+}
+
+@media only screen and (max-width: 1056px) {
+  .card {
+    height: 300px;
+  }
+  .card__description {
+    font-size: 15px;
+  }
+
+}
+
+@media only screen and (max-width: 956px) {
+  .card {
+    height: 300px;
+  }
+  .card__description {
+    font-size: 14px;
+  }
+  .card__name {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 856px) {
+  .card {
+    height: 300px;
+  }
+  .card__description {
+    font-size: 13px;
+  }
+  .card__name {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 796px) {
+  .card {
+    width: 500px;
+  }
+  .card__description {
+    font-size: 11px;
+  }
+  .card__name {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 90%;
+    max-width: 90%;
+    margin: 10px auto;
+    height: 300px;
+  }
+
+  .card__img-container {
+    width: 40%;
+    height: 100%;
+  }
+
+  .card__content {
+    width: 60%;
+    padding: 20px;
+  }
+
+  .card__buy {
+    width: auto;
+    margin-top: 20px;
+  }
+
+  .delete__product{
+    width: auto;
+    margin-top: 20px;
+  }
+
+  .card__next-image-button {
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+  }
+
+  .explore-section__error-message {
+    font-size: 18px;
+  }
+
+  .explore-section__filter-button {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .card {
+    flex-direction: column;
+    width: 90%;
+    max-width: 90%;
+    margin: 10px auto;
+    height: auto;
+  }
+
+  .card__img-container {
+    width: 100%;
+    height: 300px;
+  }
+
+  .card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card__content {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .card__buy {
+    width: auto;
+    margin-top: 20px;
+  }
+
+  .delete__product{
+    width: auto;
+    margin-top: 20px;
+  }
+
+  .card__next-image-button {
+    display: none;
+  }
+
+  .explore-section__error-message {
+    font-size: 18px;
+  }
+
+  .explore-section__dropdown {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .card {
+    flex-direction: column;
+    width: 70%;
+    max-width: 70%;
+    margin: 10px auto;
+    height: auto;
+  }
+
+  .explore-section{
+    padding: 0px;
+  }
+
+}

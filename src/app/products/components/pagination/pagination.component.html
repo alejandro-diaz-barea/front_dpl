@@ -1,0 +1,13 @@
+<nav style="height: 100%;">
+  <ul class="pagination">
+    <li class="page-item">
+      <button class="page-link" (click)="prev()" [disabled]="currentPage === 1">←</button>
+    </li>
+    <li class="page-item">
+      <span class="page-link">{{ currentPage }} de {{ totalPages }}</span>
+    </li>
+    <li class="page-item">
+      <button class="page-link" (click)="next()" [disabled]="currentPage === totalPages">→</button>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,30 @@
+<section class="section-profile">
+  <h1 class="section-profile__title">Profile</h1>
+  <div class="profile-content">
+    <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none">
+    <div class="section-profile__image-container" (click)="fileInput.click()">
+      <img [src]="getUserLogoPath()" alt="Profile Image" class="section-profile__image">
+    </div>
+    <div class="section-profile__details">
+      <h2 class="section-profile__details-title">Details:</h2>
+      <p class="section-profile__detail">
+        <span class="detail-label">Name:</span> <span class="detail-value">{{ user?.name }}</span>
+        <button class="section-profile__change-button" (click)="editDetail('name')">Change</button>
+      </p>
+      <p class="section-profile__detail">
+        <span class="detail-label">City:</span> <span class="detail-value">{{ user?.address }}</span>
+        <button class="section-profile__change-button" (click)="editDetail('address')">Change</button>
+      </p>
+    </div>
+  </div>
+  <button class="logout-button" (click)="logout()">Logout</button>
+
+  <div *ngIf="isEditing" class="modal">
+    <div class="modal-content">
+      <span class="close-button" (click)="closeModal()">&times;</span>
+      <h2>Edit {{ editingField }}</h2>
+      <input [(ngModel)]="editingValue" [placeholder]="editingField" class="edit-input">
+      <button class="save-button" (click)="updateDetail()">Save</button>
+    </div>
+  </div>
+</section>
