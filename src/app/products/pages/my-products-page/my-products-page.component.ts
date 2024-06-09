@@ -42,7 +42,7 @@ export class MyProductsPageComponent implements OnInit {
     });
 
     // My products
-    this.http.get<any>('http://127.0.0.1:8000/api/v1/user-products', { headers }).pipe(
+    this.http.get<any>('https://backenddpl-production.up.railway.app/api/v1/user-products', { headers }).pipe(
       tap((response: any) => {
         if (response && response.data && Array.isArray(response.data)) {
           this.errorMessage = '';
@@ -56,7 +56,7 @@ export class MyProductsPageComponent implements OnInit {
             ...product,
             currentImageIndex: 0,
             productImages: JSON.parse(product.image_path).map((imagePath: string) =>
-              'http://127.0.0.1:8000' + imagePath.replace('/storage', '/storage')
+              imagePath.replace('/storage', '/storage')
             )
           }));
         } else {
@@ -112,7 +112,7 @@ deleteProduct(): void {
     });
 
     // DELETE
-    this.http.delete<any>(`http://127.0.0.1:8000/api/v1/products/${productId}`, { headers }).subscribe(() => {
+    this.http.delete<any>(`https://backenddpl-production.up.railway.app/api/v1/products/${productId}`, { headers }).subscribe(() => {
       console.log('Producto eliminado:', this.productToDelete);
       this.loadMyProducts(); // Recargar la lista de productos después de eliminar
       this.productToDelete = null; // Limpiar el producto a eliminar después de eliminarlo

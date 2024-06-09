@@ -22,7 +22,7 @@ export class AuthService {
 
   async login(email: string, password: string): Promise<boolean> {
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/v1/auth/login', {
+      const response = await fetch('https://backenddpl-production.up.railway.app/api/v1/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ export class AuthService {
 
   async register(userData: { name: string, email: string, password: string, address: string, phone_number: string }): Promise<{ success: boolean, errors?: any }> {
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/v1/users', {
+      const response = await fetch('https://backenddpl-production.up.railway.app/api/v1/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ export class AuthService {
         return { success: true };
       } else {
         if (response.status === 422) {
-          const validationErrors = responseData['message']; 
+          const validationErrors = responseData['message'];
           return { success: false, errors: validationErrors };
         } else {
           // Otro tipo de error
@@ -90,7 +90,7 @@ export class AuthService {
 
   //Mantener sesion
   async checkAuthStatus(): Promise<boolean> {
-    const url = 'http://127.0.0.1:8000/api/v1/auth/checktoken';
+    const url = 'https://backenddpl-production.up.railway.app/api/v1/auth/checktoken';
     const token = localStorage.getItem('accessToken');
 
     if (!token) {
@@ -136,8 +136,8 @@ export class AuthService {
 
 
   updateUser(data: Partial<User>): Observable<User> {
-    const url = `http://127.0.0.1:8000/api/v1/users`;
-    const token = localStorage.getItem('accessToken');
+    const url = `https://backenddpl-production.up.railway.app/api/v1/users`;
+    const token = this.currentUser?.access_token
 
     if (!token) {
       throw new Error('No se encontró ningún token en el almacenamiento local.');

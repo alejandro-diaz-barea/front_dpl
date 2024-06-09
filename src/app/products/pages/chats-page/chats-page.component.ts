@@ -24,7 +24,7 @@ export class ChatsPageComponent implements OnInit {
         'Authorization': `Bearer ${token}`
       });
 
-      this.http.get<any[]>('http://127.0.0.1:8000/api/v1/chats', { headers })
+      this.http.get<any[]>('https://backenddpl-production.up.railway.app/api/v1/chats', { headers })
         .subscribe(
           (response) => {
             console.log('Respuesta del servidor chats:', response);
@@ -44,7 +44,7 @@ export class ChatsPageComponent implements OnInit {
   }
 
   getUserLogoPath(user: any): string {
-    const baseUrl = 'http://127.0.0.1:8000/';
+    const baseUrl = 'https://backenddpl-production.up.railway.app/';
     return user?.logo_path ? `${baseUrl}${user.logo_path}` : '../../../../assets/profile-user.png';
   }
 

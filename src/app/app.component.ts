@@ -63,7 +63,7 @@ import { User } from './auth/interfaces/user.interfaces';
 
 
     getUserLogoPath(): string {
-      const baseUrl = 'http://127.0.0.1:8000/';
+      const baseUrl = 'https://backenddpl-production.up.railway.app/';
       return this.userLogo?.logo_path ? `${baseUrl}${this.userLogo.logo_path}` : '../../../../assets/profile-user.png';
     }
 

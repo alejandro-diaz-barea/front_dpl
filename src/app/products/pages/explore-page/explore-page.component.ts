@@ -49,7 +49,7 @@ export class ExplorePageComponent implements OnInit {
       params += `&categories=${this.selectedCategories.join(',')}`;
     }
 
-    this.http.get<any>(`http://127.0.0.1:8000/api/v1/products${params}`).pipe(
+    this.http.get<any>(`https://backenddpl-production.up.railway.app/api/v1/products${params}`).pipe(
       tap((response: any) => {
         if (response && response.data && Array.isArray(response.data.data)) {
           this.totalPages = response.data.last_page;
@@ -64,7 +64,7 @@ export class ExplorePageComponent implements OnInit {
             ...product,
             currentImageIndex: 0,
             productImages: JSON.parse(product.image_path).map((imagePath: string) =>
-              'http://127.0.0.1:8000' + imagePath.replace('/storage', '/storage')
+              imagePath.replace('/storage', '/storage')
             )
           }));
         } else {
@@ -139,7 +139,7 @@ export class ExplorePageComponent implements OnInit {
 
       const payload = { user2_id: sellerId };
 
-      this.http.post('http://127.0.0.1:8000/api/v1/chats', payload, { headers })
+      this.http.post('https://backenddpl-production.up.railway.app/api/v1/chats', payload, { headers })
         .subscribe(
           (response) => {
             console.log('Chat created:', response);
@@ -180,7 +180,7 @@ export class ExplorePageComponent implements OnInit {
       'Authorization': `Bearer ${token}`
     });
 
-    this.http.delete<any>(`http://127.0.0.1:8000/api/v1/products/${productId}`, { headers }).subscribe(
+    this.http.delete<any>(`https://backenddpl-production.up.railway.app/api/v1/products/${productId}`, { headers }).subscribe(
       () => {
         console.log('Producto eliminado:', productId);
         this.loadProducts(this.currentPage);

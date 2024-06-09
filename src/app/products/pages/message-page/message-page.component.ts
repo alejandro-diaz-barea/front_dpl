@@ -73,7 +73,7 @@ export class MessagePageComponent implements OnInit, OnDestroy, AfterViewChecked
           'Authorization': `Bearer ${token}`
         });
 
-        this.http.get<any[]>(`http://127.0.0.1:8000/api/v1/messages?chat_id=${this.chatId}`, { headers })
+        this.http.get<any[]>(`https://backenddpl-production.up.railway.app/api/v1/messages?chat_id=${this.chatId}`, { headers })
           .subscribe(
             (response) => {
               console.log('Response from server:', response);
@@ -105,7 +105,7 @@ export class MessagePageComponent implements OnInit, OnDestroy, AfterViewChecked
           content: this.messageForm.value.content
         };
 
-        this.http.post(`http://127.0.0.1:8000/api/v1/messages`, body, { headers })
+        this.http.post(`https://backenddpl-production.up.railway.app/api/v1/messages`, body, { headers })
           .subscribe(
             (response) => {
               console.log('Message sent successfully:', response);

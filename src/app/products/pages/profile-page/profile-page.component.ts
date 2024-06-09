@@ -28,7 +28,8 @@ export class ProfilePageComponent {
 
 
   getUserLogoPath(): string {
-    const baseUrl = 'http://127.0.0.1:8000/';
+    const baseUrl = 'https://backenddpl-production.up.railway.app/';
+    console.log(baseUrl + this.user?.logo_path)
     return this.user?.logo_path ? `${baseUrl}${this.user.logo_path}` : '../../../../assets/profile-user.png';
   }
 
@@ -96,7 +97,7 @@ export class ProfilePageComponent {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${accessToken}`);
 
     // Enviar la imagen al backend
-    this.http.post<any>('http://127.0.0.1:8000/api/v1/users/upload-photo', formData, { headers }).subscribe(
+    this.http.post<any>('https://backenddpl-production.up.railway.app/api/v1/users/upload-photo', formData, { headers }).subscribe(
       async (response) => {
         if (response && response.user) {
           console.log('Imagen subida exitosamente:', response);

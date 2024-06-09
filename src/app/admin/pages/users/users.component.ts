@@ -26,7 +26,7 @@ export class UsersComponent implements OnInit {
       return;
     }
 
-    fetch('http://127.0.0.1:8000/api/v1/admin/users', {
+    fetch('https://backenddpl-production.up.railway.app/api/v1/admin/users', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ export class UsersComponent implements OnInit {
         return;
     }
 
-    fetch(`http://127.0.0.1:8000/api/v1/users/${userId}/change-role`, {
+    fetch(`https://backenddpl-production.up.railway.app/api/v1/users/${userId}/change-role`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ export class UsersComponent implements OnInit {
       return;
     }
 
-    fetch(`http://127.0.0.1:8000/api/v1/users/${userId}/ban`, {
+    fetch(`https://backenddpl-production.up.railway.app/api/v1/users/${userId}/ban`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

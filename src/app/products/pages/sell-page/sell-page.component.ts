@@ -95,7 +95,7 @@ export class SellPageComponent implements OnDestroy {
       const headers = new HttpHeaders({
         'Authorization': `Bearer ${token}`
       });
-      this.http.get<Product>(`http://127.0.0.1:8000/api/v1/products/${id}`, { headers }).subscribe(
+      this.http.get<Product>(`https://backenddpl-production.up.railway.app/api/v1/products/${id}`, { headers }).subscribe(
         product => {
           console.log(product)
           this.productForm.patchValue({
@@ -181,7 +181,7 @@ export class SellPageComponent implements OnDestroy {
         'Authorization': `Bearer ${token}`
       });
 
-      this.http.post<any>('http://127.0.0.1:8000/api/v1/products', formData, { headers }).subscribe(
+      this.http.post<any>('https://backenddpl-production.up.railway.app/api/v1/products', formData, { headers }).subscribe(
         response => {
           console.log("Product created: " + response)
           this.successMessage = 'Product created successfully';
