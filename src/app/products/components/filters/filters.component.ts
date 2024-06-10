@@ -26,7 +26,7 @@ export class FiltersComponent implements OnInit {
   }
 
   fetchCategories(): void {
-    let apiUrl = 'http://127.0.0.1:8000/api/v1/categories';
+    let apiUrl = 'https://backenddpl-production.up.railway.app/api/v1/categories';
 
     if (this.searchTerm) {
       apiUrl += `?query=${this.searchTerm}`;
